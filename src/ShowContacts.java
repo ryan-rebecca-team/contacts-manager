@@ -15,6 +15,6 @@ public class ShowContacts {
         for (int i = 0; i < contact.size(); i++) {
             System.out.println(contactNames.get(i)+" | "+contactNumbers.get(i));
         }
-
+        ContactUI.contactsMainMenu();
     }
 }

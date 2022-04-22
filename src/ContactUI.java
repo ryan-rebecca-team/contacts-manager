@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ContactUI {
@@ -14,28 +15,29 @@ public class ContactUI {
         checkUserInput(userInput);
     }
     public static void checkUserInput(int userInput){
-        if (userInput == 1){
-            //todo make method that shows all contacts- done
-            ShowContacts.contactsShown();
+            if (userInput == 1) {
+                //todo make method that shows all contacts- done
+                ShowContacts.contactsShown();
 
-        } else if (userInput == 2) {
-            //todo make method that creates contacts and push it to a hashmap - done
-          AddContact.addPrompt(scanner);
+            } else if (userInput == 2) {
+                //todo make method that creates contacts and push it to a hashmap - done
+                AddContact.addPrompt(scanner);
 
-        } else if (userInput == 3) {
-            //todo search contact information by using the hashmap and the key would be the contact full name - done
-            SearchContact.searchContact(scanner);
-        } else if (userInput == 4) {
-            //todo delete contact information by using remove in hashmap by giving the key which is the contact full name -
-            System.out.println("This is four");
+            } else if (userInput == 3) {
+                //todo search contact information by using the hashmap and the key would be the contact full name - done
+                SearchContact.searchContact(scanner);
+            } else if (userInput == 4) {
+                //todo delete contact information by using remove in hashmap by giving the key which is the contact full name -
+                RemoveContact.removeContact(scanner);
 
-        }else if (userInput == 5) {
-            //todo exit-out of app
-            System.out.println("This is five");
-        }else {
-            scanner.nextLine();
-            System.out.println("Not a valid input ");
-            contactsMainMenu();
-        }
+            } else if (userInput == 5) {
+                //todo exit-out of app
+                System.out.println("bye");
+            } else {
+                scanner.nextLine();
+                System.out.println("Not a valid input ");
+                contactsMainMenu();
+            }
+
     }
 }

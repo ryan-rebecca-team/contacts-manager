@@ -9,14 +9,10 @@ public class SearchContact {
         System.out.println("Enter a Full Name");
         String checkName = scanner.nextLine();
         for (int i = 0; i < contactNames.size(); i++) {
-            /*if (checkName.equals(contactNames.get(i))) {
-                System.out.println(contactNames.get(i)+" | "+contactNumbers.get(i));
-                break;
-            } else if (!checkName.equals(contactNames.get(i))) {
-                System.out.println("This name does not exist");
-            }*/
+
             if (contactNames.contains(checkName)){
-                System.out.println(contactNames.get(i)+" | "+contactNumbers.get(i));
+                Contacts contacts1 = AddContact.listOfContacts.get(checkName);
+                System.out.println(contacts1.getNames()+" | "+contacts1.getNumber());
                 break;
             } else {
                 System.out.println("This name does not exist");
