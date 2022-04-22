@@ -15,19 +15,18 @@ public class ContactUI {
     }
     public static void checkUserInput(int userInput){
         if (userInput == 1){
-            //todo make method that shows al contacts
+            //todo make method that shows all contacts- done
             ShowContacts.contactsShown();
 
         } else if (userInput == 2) {
-            //todo make method that creates contacts and push it to a hashmap
+            //todo make method that creates contacts and push it to a hashmap - done
           AddContact.addPrompt(scanner);
 
         } else if (userInput == 3) {
-            //todo search contact information by using the hashmap and the key would be the contact full name
-
-            System.out.println("This is three");
+            //todo search contact information by using the hashmap and the key would be the contact full name - done
+            SearchContact.searchContact(scanner);
         } else if (userInput == 4) {
-            //todo delete contact information by using remove in hashmap by giving the key which is the contact full name
+            //todo delete contact information by using remove in hashmap by giving the key which is the contact full name -
             System.out.println("This is four");
 
         }else if (userInput == 5) {
