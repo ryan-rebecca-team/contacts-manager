@@ -1,11 +1,11 @@
-public class Contacts {
+public class Contacts extends ShowContacts {
 
     private String names;
 
     private String number;
 
-    public Contacts(String names, String number){
-        this.names = names;
+    public Contacts(String firstName, String lastName, String number){
+        this.names = firstName+" "+lastName;
         this.number = number;
     }
 

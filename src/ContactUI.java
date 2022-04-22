@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class ContactUI {
     static Scanner scanner = new Scanner(System.in);
     public static void contactsMainMenu(){
-        System.out.println("1. View contacts.\n" +
+        System.out.println("\n1. View contacts.\n" +
                 "2. Add a new contact.\n" +
                 "3. Search a contact by name.\n" +
                 "4. Delete an existing contact.\n" +
@@ -15,24 +15,26 @@ public class ContactUI {
     }
     public static void checkUserInput(int userInput){
         if (userInput == 1){
-            System.out.println("This is one");
+            //todo make method that shows al contacts
+            ShowContacts.contactsShown();
+
+
         } else if (userInput == 2) {
-            System.out.println("Enter a Name");
-            String newContact = scanner.nextLine();
-            System.out.println("Enter a number");
-            String contactNumber = scanner.nextLine();
-            Contacts contact = new Contacts(newContact, contactNumber);
-            System.out.println("This is the name " + contact.getNames());
-            System.out.println("This is the number " + contact.getNumber());
+            //todo make method that creates contacts and push it to a hashmap
+          AddContact.addPrompt(scanner);
         } else if (userInput == 3) {
+            //todo search contact information by using the hashmap and the key would be the contact full name
             System.out.println("This is three");
         } else if (userInput == 4) {
+            //todo delete contact information by using remove in hashmap by giving the key which is the contact full name
             System.out.println("This is four");
+
         }else if (userInput == 5) {
+            //todo exit-out of app
             System.out.println("This is five");
         }else {
             scanner.nextLine();
-            System.out.println("Not a valid input \n");
+            System.out.println("Not a valid input ");
             contactsMainMenu();
         }
     }
