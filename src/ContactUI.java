@@ -18,12 +18,13 @@ public class ContactUI {
             //todo make method that shows al contacts
             ShowContacts.contactsShown();
 
-
         } else if (userInput == 2) {
             //todo make method that creates contacts and push it to a hashmap
           AddContact.addPrompt(scanner);
+
         } else if (userInput == 3) {
             //todo search contact information by using the hashmap and the key would be the contact full name
+
             System.out.println("This is three");
         } else if (userInput == 4) {
             //todo delete contact information by using remove in hashmap by giving the key which is the contact full name

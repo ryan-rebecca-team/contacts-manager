@@ -1,8 +1,12 @@
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Scanner;
 
 public class AddContact {
    static HashMap<String, Contacts> listOfContacts = new HashMap<>();
+    static ArrayList<String> keywords = new ArrayList<>();
+    static ArrayList<String> numbers = new ArrayList<>();
 
     public static void addPrompt(Scanner scanner) {
         System.out.println("Enter a First Name");
@@ -19,8 +23,9 @@ public class AddContact {
 
     //This adds to the hashmap
     public static void hashMap(String firstName, String lastName, String number){
-
         Contacts contacts1 = new Contacts(firstName, lastName, number);
+        keywords.add(contacts1.getNames());
+        numbers.add(contacts1.getNumber());
         listOfContacts.put(contacts1.getNames(), contacts1);
         System.out.println(listOfContacts);
         System.out.println("This is the name " + contacts1.getNames());
