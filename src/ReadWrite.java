@@ -4,23 +4,13 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class ReadWrite {
-  /*  public static void main(String[] args){
-        List<String> linesToWrite = new ArrayList<>();
-        linesToWrite.add("Hello!");
-        linesToWrite.add("This is a line");
-        linesToWrite.add("Now read this");
-        tryWriteFile(createFile(),linesToWrite);
 
-        for (String lines:tryReadFile(createFile())) {
-            System.out.println(lines);
-        }
-    }*/
+    static HashMap<String, Contacts> contactsHashMap = AddContact.listOfContacts;
+   static ArrayList<String> contactNames = AddContact.keywords;
+   static ArrayList<String> contactNumbers = AddContact.numbers;
 
     public static Path createFile() {
         String directory = "src/contactsinfo";
@@ -57,8 +47,14 @@ public class ReadWrite {
     public static List<Contacts> tryReadFile(Path filepath) {
         try {
             String contactsList = Files.readAllLines(filepath).get(0);
-            System.out.println(contactsList);
+
             Contacts[] contacts = new Gson().fromJson(String.valueOf(contactsList), Contacts[].class);
+
+            for (int i = 0; i < contacts.length; i++) {
+                AddContact.keywords.add(contacts[i].getNames());
+                AddContact.listOfContacts.put(contacts[i].getNames(),contacts[i]);
+                AddContact.numbers.add(contacts[i].getNumber());
+            }
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }

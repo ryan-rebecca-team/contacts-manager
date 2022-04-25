@@ -1,3 +1,5 @@
+import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -8,7 +10,7 @@ public class ContactUI {
                 "2. Add a new contact.\n" +
                 "3. Search a contact by name.\n" +
                 "4. Delete an existing contact.\n" +
-                "5. Exit.\n" +
+                "5. Save and Exit.\n" +
                 "Enter an option (1, 2, 3, 4 or 5):");
         try {
         int userInput = scanner.nextInt();
@@ -41,6 +43,8 @@ public class ContactUI {
             } else if (userInput == 5) {
                 //todo exit-out of app
                 System.out.println("bye");
+                ReadWrite.tryWriteFile(Paths.get("src/contactsinfo/contacts.json"), new ArrayList<>(AddContact.listOfContacts.values()));
+                ReadWrite.tryReadFile(Paths.get("src/contactsinfo/contacts.json"));
             } else {
                 scanner.nextLine();
                 System.out.println("Not a valid input ");
