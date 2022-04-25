@@ -1,4 +1,4 @@
-public class Contacts extends ShowContacts {
+public class Contacts {
 
     private String names;
 
@@ -15,5 +15,13 @@ public class Contacts extends ShowContacts {
 
     public String getNumber() {
         return number;
+    }
+
+    @Override
+    public String toString() {
+        return "Contacts{" +
+                "names='" + names + '\'' +
+                ", number='" + number + '\'' +
+                '}';
     }
 }

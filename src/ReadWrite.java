@@ -1,8 +1,12 @@
+import com.google.gson.Gson;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class ReadWrite {
@@ -18,15 +22,15 @@ public class ReadWrite {
         }
     }*/
 
-    public static Path createFile(){
+    public static Path createFile() {
         String directory = "src/contactsinfo";
-        String fileName = "contacts.txt";
+        String fileName = "contacts.json";
 
         Path dataDirectory = Paths.get(directory);
         Path dataFile = Paths.get(directory, fileName);
 
-        try{
-            if (Files.notExists(dataDirectory)){
+        try {
+            if (Files.notExists(dataDirectory)) {
                 Files.createDirectories(dataDirectory);
             }
 
@@ -35,23 +39,26 @@ public class ReadWrite {
             }
 
             return dataFile;
-        } catch (IOException ex){
+        } catch (IOException ex) {
             System.out.println(ex.getMessage());
             return null;
         }
     }
-    public static  void tryWriteFile(Path filePath, List<String> linesToWrite){
+
+    public static void tryWriteFile(Path filePath, List<Contacts> contactsToWrite) {
         try {
-            Files.write(filePath,linesToWrite);
-        }catch (IOException ex){
+            String linesToWrite = new Gson().toJson(contactsToWrite);
+            Files.write(filePath, Collections.singleton(linesToWrite));
+        } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
     }
 
-    public static List<String> tryReadFile(Path filepath) {
+    public static List<Contacts> tryReadFile(Path filepath) {
         try {
-            return Files.readAllLines(filepath);
-        }catch (IOException ex){
+            String contactsList = Files.readAllLines(filepath).get(0);
+            Contacts[] contacts = new Gson().fromJson(String.valueOf(contactsList), Contacts[].class);
+        } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
         return null;

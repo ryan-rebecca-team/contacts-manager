@@ -1,7 +1,5 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Scanner;
+import java.nio.file.Paths;
+import java.util.*;
 
 public class AddContact {
    static HashMap<String, Contacts> listOfContacts = new HashMap<>();
@@ -27,11 +25,13 @@ public class AddContact {
         keywords.add(contacts1.getNames());
         numbers.add(contacts1.getNumber());
         listOfContacts.put(contacts1.getNames(), contacts1);
-        System.out.println(listOfContacts);
+        ReadWrite.tryWriteFile(Paths.get("src/contactsinfo/contacts.json"), new ArrayList<>(listOfContacts.values()));
+        ReadWrite.tryReadFile(Paths.get("src/contactsinfo/contacts.json"));
+        /*System.out.println(listOfContacts);
         System.out.println("This is the name " + contacts1.getNames());
         System.out.println("This is the number " + contacts1.getNumber());
 
-        ContactUI.contactsMainMenu();
+        ContactUI.contactsMainMenu();*/
 
     }
 }
