@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class RemoveContact {
     static HashMap<String, Contacts> listOfContacts = new HashMap<>();
     static ArrayList<String> contactNames = AddContact.keywords;
-    static ArrayList<String> contactNumbers = AddContact.numbers;
     public static void removeContact(Scanner scanner){
         scanner.nextLine();
         System.out.println("Give a valid name to remove");

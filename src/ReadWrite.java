@@ -57,6 +57,7 @@ public class ReadWrite {
     public static List<Contacts> tryReadFile(Path filepath) {
         try {
             String contactsList = Files.readAllLines(filepath).get(0);
+            System.out.println(contactsList);
             Contacts[] contacts = new Gson().fromJson(String.valueOf(contactsList), Contacts[].class);
         } catch (IOException ex) {
             System.out.println(ex.getMessage());

@@ -5,6 +5,7 @@ public class SearchContact {
     static ArrayList<String> contactNames = AddContact.keywords;
     static ArrayList<String> contactNumbers = AddContact.numbers;
     public static void searchContact(Scanner scanner) {
+//        System.out.println(contactNames);
         scanner.nextLine();
         System.out.println("Enter a Full Name");
         String checkName = scanner.nextLine();
