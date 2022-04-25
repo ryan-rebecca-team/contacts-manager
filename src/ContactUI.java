@@ -3,18 +3,26 @@ import java.util.Scanner;
 
 public class ContactUI {
     static Scanner scanner = new Scanner(System.in);
-    public static void contactsMainMenu(){
+    public static void contactsMainMenu() {
         System.out.println("\n1. View contacts.\n" +
                 "2. Add a new contact.\n" +
                 "3. Search a contact by name.\n" +
                 "4. Delete an existing contact.\n" +
                 "5. Exit.\n" +
                 "Enter an option (1, 2, 3, 4 or 5):");
-
+        try {
         int userInput = scanner.nextInt();
-        checkUserInput(userInput);
+            checkUserInput(userInput);
+        }
+        catch (InputMismatchException ex) {
+            //System.out.println(ex.getMessage());
+            System.out.println("This is not a valid input, use numbers 1-5");
+            scanner.nextLine();
+            contactsMainMenu();
+        }
     }
-    public static void checkUserInput(int userInput){
+    public static void checkUserInput(int userInput) {
+
             if (userInput == 1) {
                 //todo make method that shows all contacts- done
                 ShowContacts.contactsShown();
@@ -38,6 +46,5 @@ public class ContactUI {
                 System.out.println("Not a valid input ");
                 contactsMainMenu();
             }
-
     }
 }

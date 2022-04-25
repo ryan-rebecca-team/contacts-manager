@@ -8,17 +8,14 @@ public class SearchContact {
         scanner.nextLine();
         System.out.println("Enter a Full Name");
         String checkName = scanner.nextLine();
-        for (int i = 0; i < contactNames.size(); i++) {
 
             if (contactNames.contains(checkName)){
                 Contacts contacts1 = AddContact.listOfContacts.get(checkName);
                 System.out.println(contacts1.getNames()+" | "+contacts1.getNumber());
-                break;
             } else {
                 System.out.println("This name does not exist");
             }
 
-        }
         ContactUI.contactsMainMenu();
     }
     /*public static String contactInfo (String keyWord) {
