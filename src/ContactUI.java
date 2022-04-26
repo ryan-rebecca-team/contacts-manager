@@ -32,6 +32,7 @@ public class ContactUI {
 
             } else if (userInput == 2) {
                 //todo make method that creates contacts and push it to a hashmap - done
+                scanner.nextLine();
                 AddContact.addPrompt(scanner);
 
             } else if (userInput == 3) {
@@ -58,6 +59,7 @@ public class ContactUI {
                         "██║░░╚██╗██║░░██║██║░░██║██║░░██║  ██╔══██╗░░╚██╔╝░░██╔══╝░░\n" +
                         "╚██████╔╝╚█████╔╝╚█████╔╝██████╔╝  ██████╦╝░░░██║░░░███████╗\n" +
                         "░╚═════╝░░╚════╝░░╚════╝░╚═════╝░  ╚═════╝░░░░╚═╝░░░╚══════╝");
+                System.exit(0);
             } else {
                 scanner.nextLine();
                 System.out.println("Not a valid input ");
