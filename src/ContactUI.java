@@ -37,9 +37,15 @@ public class ContactUI {
             } else if (userInput == 3) {
                 //todo search contact information by using the hashmap and the key would be the contact full name - done
                 SearchContact.searchContact(scanner);
+
             } else if (userInput == 4) {
+
                 //todo delete contact information by using remove in hashmap by giving the key which is the contact full name -
-                RemoveContact.removeContact(scanner);
+                scanner.nextLine();
+                System.out.println("Give a valid name to remove");
+                String removeName =  scanner.nextLine();
+                RemoveContact.removeContact(removeName);
+                ContactUI.contactsMainMenu();
 
             } else if (userInput == 5) {
                 //todo exit-out of app
@@ -77,8 +83,6 @@ public class ContactUI {
                 "  `---`                                    `--`---'     `----'                        \n" +
                 "                                                                                     ");
         contactsMainMenu();
-
-
     }
 
 }

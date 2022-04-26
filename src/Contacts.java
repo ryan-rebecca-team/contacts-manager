@@ -7,6 +7,7 @@ public class Contacts {
     private String number;
     static ArrayList<String> contactNames = AddContact.keywords;
     static ArrayList<String> contactNumbers = AddContact.numbers;
+
     public Contacts(String firstName, String lastName, String number){
         this.names = firstName+" "+lastName;
         this.number = number;
