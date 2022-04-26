@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class ContactUI {
     static Scanner scanner = new Scanner(System.in);
     public static void contactsMainMenu() {
+
         System.out.println("\n1. View contacts.\n" +
                 "2. Add a new contact.\n" +
                 "3. Search a contact by name.\n" +
@@ -42,13 +43,42 @@ public class ContactUI {
 
             } else if (userInput == 5) {
                 //todo exit-out of app
-                System.out.println("bye");
                 ReadWrite.tryWriteFile(Paths.get("src/contactsinfo/contacts.json"), new ArrayList<>(AddContact.listOfContacts.values()));
                 ReadWrite.tryReadFile(Paths.get("src/contactsinfo/contacts.json"));
+                System.out.println("\n" +
+                        "░██████╗░░█████╗░░█████╗░██████╗░  ██████╗░██╗░░░██╗███████╗\n" +
+                        "██╔════╝░██╔══██╗██╔══██╗██╔══██╗  ██╔══██╗╚██╗░██╔╝██╔════╝\n" +
+                        "██║░░██╗░██║░░██║██║░░██║██║░░██║  ██████╦╝░╚████╔╝░█████╗░░\n" +
+                        "██║░░╚██╗██║░░██║██║░░██║██║░░██║  ██╔══██╗░░╚██╔╝░░██╔══╝░░\n" +
+                        "╚██████╔╝╚█████╔╝╚█████╔╝██████╔╝  ██████╦╝░░░██║░░░███████╗\n" +
+                        "░╚═════╝░░╚════╝░░╚════╝░╚═════╝░  ╚═════╝░░░░╚═╝░░░╚══════╝");
             } else {
                 scanner.nextLine();
                 System.out.println("Not a valid input ");
                 contactsMainMenu();
             }
     }
+
+    public static void asciiArt(){
+        System.out.println("                                                                                      \n" +
+                "                                                                                      \n" +
+                "  ,----..                           ___                            ___                \n" +
+                " /   /   \\                        ,--.'|_                        ,--.'|_              \n" +
+                "|   :     :  ,---.        ,---,   |  | :,'                       |  | :,'             \n" +
+                ".   |  ;. / '   ,'\\   ,-+-. /  |  :  : ' :                       :  : ' :  .--.--.    \n" +
+                ".   ; /--` /   /   | ,--.'|'   |.;__,'  /    ,--.--.     ,---. .;__,'  /  /  /    '   \n" +
+                ";   | ;   .   ; ,. :|   |  ,\"' ||  |   |    /       \\   /     \\|  |   |  |  :  /`./   \n" +
+                "|   : |   '   | |: :|   | /  | |:__,'| :   .--.  .-. | /    / ':__,'| :  |  :  ;_     \n" +
+                ".   | '___'   | .; :|   | |  | |  '  : |__  \\__\\/: . ..    ' /   '  : |__ \\  \\    `.  \n" +
+                "'   ; : .'|   :    ||   | |  |/   |  | '.'| ,\" .--.; |'   ; :__  |  | '.'| `----.   \\ \n" +
+                "'   | '/  :\\   \\  / |   | |--'    ;  :    ;/  /  ,.  |'   | '.'| ;  :    ;/  /`--'  / \n" +
+                "|   :    /  `----'  |   |/        |  ,   /;  :   .'   \\   :    : |  ,   /'--'.     /  \n" +
+                " \\   \\ .'           '---'          ---`-' |  ,     .-./ \\   \\  /   ---`-'   `--'---'   \n" +
+                "  `---`                                    `--`---'     `----'                        \n" +
+                "                                                                                     ");
+        contactsMainMenu();
+
+
+    }
+
 }

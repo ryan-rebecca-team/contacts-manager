@@ -9,7 +9,7 @@ public class ContactsRunner {
 //        AddContact.hashMap("john", "snow", "555-555-5555");
 
         ReadWrite.tryReadFile(Paths.get("src/contactsinfo/contacts.json"));
-        ContactUI.contactsMainMenu();
+        ContactUI.asciiArt();
 
     }
 }
