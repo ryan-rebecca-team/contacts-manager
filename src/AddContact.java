@@ -16,7 +16,22 @@ public class AddContact {
         System.out.println("Enter a number");
 
         String contactNumber = scanner.nextLine();
-        addContact(newContFirstNAme,newContLastName,contactNumber);
+
+        String fullName =  newContFirstNAme +" "+newContLastName;
+        if (!keywords.contains(fullName)){
+            addContact(newContFirstNAme, newContLastName, contactNumber);
+
+        }
+        else {
+
+            System.out.println("There is already a contact by name "+ fullName+ ". Do you want to overwrite it? (yes/no)");
+            String confermation = scanner.nextLine();
+            if (confermation.equalsIgnoreCase("y")||confermation.equalsIgnoreCase("yes")) {
+                RemoveContact.removeContact(fullName);
+                addContact(newContFirstNAme,newContLastName,contactNumber);
+            }
+        }
+        ContactUI.contactsMainMenu();
     }
 
     //This adds to the hashmap
@@ -26,8 +41,7 @@ public class AddContact {
         numbers.add(contacts1.getNumber());
         listOfContacts.put(contacts1.getNames(), contacts1);
 
-       ContactUI.contactsMainMenu();
-    }
 
+    }
 
 }

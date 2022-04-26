@@ -8,10 +8,6 @@ import java.util.*;
 
 public class ReadWrite {
 
-    static HashMap<String, Contacts> contactsHashMap = AddContact.listOfContacts;
-   static ArrayList<String> contactNames = AddContact.keywords;
-   static ArrayList<String> contactNumbers = AddContact.numbers;
-
     public static Path createFile() {
         String directory = "src/contactsinfo";
         String fileName = "contacts.json";
