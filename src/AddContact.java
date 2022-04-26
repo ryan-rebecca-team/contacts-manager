@@ -55,7 +55,7 @@ public class AddContact {
             num2=number.substring(3,7);
             return num1+num2;
         }
-        System.out.println("That is not a valid number");
+        System.out.println("That is not a valid number, put in a number 7 or 10 digits long");
         addPrompt(scan);
         return number;
 
